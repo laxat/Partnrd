@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
  * @param {*} validate 
  * @returns 
  */
+
 export const useSignup = (validate) =>
 {
     const [values, setValues] = useState({
@@ -26,8 +27,8 @@ export const useSignup = (validate) =>
     message: "",
   });
 
-   const [errors, setErrors] = useState({});
-    
+  const [errors, setErrors] = useState({});
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState({
     state: false,
@@ -58,7 +59,7 @@ export const useSignup = (validate) =>
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const data = values;
       axios
-        .post("http://127.0.0.1:8000/api/client_register", data)
+        .post("http://127.0.0.1:8000/api/client/register", data)
         .then((res) => {
           const success = {
             state: true,
