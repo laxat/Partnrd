@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2021 at 06:02 PM
+-- Generation Time: Jun 19, 2021 at 07:43 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -120,11 +120,13 @@ INSERT INTO `oauth_access_tokens` (`id`, `user_id`, `client_id`, `name`, `scopes
 ('65269355c997e1cd5d7e5e474e465d7a75b605510b704b11f2b283ce39f44ddfd572022e3a347e19', 5, 1, 'son@gmail.com-2021-05-18 05:35:33', '[]', 0, '2021-05-18 09:35:33', '2021-05-18 09:35:33', '2022-05-18 05:35:33'),
 ('6982b161e8d51fe1072c5ee4cad9b8b3c7c24574c383574a58899dc6866ec7b94dd6875f29b5102e', 1, 1, 'Personal Access Token', '[]', 0, '2021-05-20 19:09:39', '2021-05-20 19:09:39', '2021-05-27 15:09:39'),
 ('6cd820ffe665f920d51a9ae0682f27c581eb46661f01893de8114b970e85056a1fc2758661e589b3', 6, 1, 'HelloFresh@gmail.com-2021-05-18 05:56:09', '[]', 0, '2021-05-18 09:56:09', '2021-05-18 09:56:09', '2022-05-18 05:56:09'),
+('8be87a24ddbce4222a22d62f9770d2140ccb41aa6b66794c08c866f361ce57fc3e27481dba475acf', 29, 1, 'Personal Access Token', '[]', 0, '2021-06-16 01:41:30', '2021-06-16 01:41:30', '2021-06-22 21:41:30'),
 ('a57613b735d80789f7e2121409a1890f6241d6fa6edf839ca4b6f5bbbbc26c9f2f1546df279b8d20', 1, 1, 'Personal Access Token', '[]', 0, '2021-05-20 09:04:34', '2021-05-20 09:04:34', '2021-05-27 05:04:34'),
 ('ac1c3f62d2ef67983a2088ba6d7757543ff58ba67b753dea901d7aa6e86ef02cfaa307f71f9a780a', 2, 1, 'richardmba7@gmail.com-2021-05-18 04:01:47', '[]', 0, '2021-05-18 08:01:47', '2021-05-18 08:01:47', '2022-05-18 04:01:47'),
 ('c673ae2f6efba49585b821e012d1547f6a7de4cc5f2fdb78c98931c4a153a6c0f4a8e79c2d94d627', 2, 1, 'Personal Access Token', '[]', 0, '2021-05-20 20:19:23', '2021-05-20 20:19:23', '2021-05-27 16:19:23'),
 ('c72d2dc1a1230a7600d1e0a18c4a4822765faa8f955a959c289a51a232e72b70147a3fea6b0ec838', 3, 1, 'fatman7100@gmail.com-2021-05-18 05:12:29', '[]', 0, '2021-05-18 09:12:29', '2021-05-18 09:12:29', '2022-05-18 05:12:29'),
-('dc01d99c7c10a82e7ccb81ada750ce890db77e5870e212e514ba9af4473c60fcaa3056e18257b118', 1, 1, 'Personal Access Token', '[]', 0, '2021-05-19 11:46:43', '2021-05-19 11:46:43', '2021-05-26 07:46:43');
+('dc01d99c7c10a82e7ccb81ada750ce890db77e5870e212e514ba9af4473c60fcaa3056e18257b118', 1, 1, 'Personal Access Token', '[]', 0, '2021-05-19 11:46:43', '2021-05-19 11:46:43', '2021-05-26 07:46:43'),
+('e77a73f9e0c3c19128999e741bbf48a8a98ab8104a2ae3f0c6bd66474d2bb265ff97d528432341b6', 29, 1, 'Personal Access Token', '[]', 0, '2021-06-16 01:50:22', '2021-06-16 01:50:22', '2021-06-22 21:50:22');
 
 -- --------------------------------------------------------
 
@@ -237,20 +239,21 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `verified` tinyint(1) DEFAULT NULL
+  `verified` tinyint(1) DEFAULT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `verified`) VALUES
-(1, 'fam', 'fam23@gmail.com', NULL, '$2y$10$OpUwfAQSgEW/A1Oi.MgYmeRLtVX5W8/0rcYJXKzYXfIfPERVagIk2', NULL, '2021-05-18 07:55:36', '2021-05-31 06:49:08', 1),
-(2, 'hello', 'boy@roy.com', NULL, '$2y$10$F8f1gg1/WVB0J9f5phrebeX/p0JHevPx64z6GOFqSmhbrEFsQec1m', 'HgT06LulLSA7YLDXpn8aHdFpWrsUl9isuNkrrbR5fLc4ZhBglJw8ryYJEtS0', '2021-05-18 08:01:47', '2021-05-29 11:11:49', NULL),
-(5, 'Richard Mba', 'son@gmail.com', NULL, '$2y$10$C3r6z39RJFmAprnevO92zOMcOgky4GwzTKKh8RNh0jYQGVBhYVNPy', NULL, '2021-05-18 09:35:33', '2021-05-18 09:35:33', NULL),
-(6, 'Hello', 'HelloFresh@gmail.com', NULL, '$2y$10$qr0ogVZRLekM03kehVrvP.4T8VXSVXgjf3Ot3aQ094Mz.P4jTwKai', NULL, '2021-05-18 09:56:09', '2021-05-18 09:56:09', NULL),
-(7, 'faml', 'faml23@gmail.com', NULL, '$2y$10$YcfY/6ML7i7D/B2QMKN64OSt922kVyW4Bw01jNuv72/Zo4NwCOBxO', NULL, '2021-05-20 20:43:41', '2021-05-20 20:43:41', NULL),
-(8, 'Richard Mba', 'fam@gmail.com', NULL, '$2y$10$EEaKxk/OWpp1uhRYnuWxmuOu/iA.WFFfiCvNpW8B2eKUIES6/t3u.', '0TWp3xL2g5sWpxGCxvZhm4WMtiIEVC2AhWXPeqAo230FE3UZM33ZIQcxRWq5', '2021-05-20 21:08:47', '2021-05-20 21:12:06', NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `verified`, `role`) VALUES
+(20, 'Richard Mba', 'fatman7100@gmail.com', NULL, '$2y$10$8SQGtKewxvYiWH0EQZdbrOygehYmn79sfjiU4kFeQADfYp7YgFZQm', NULL, '2021-06-15 04:53:19', '2021-06-15 04:53:19', 1, 'Client'),
+(23, 'Bov', 'fam3@gmail.com', NULL, '$2y$10$2wNz4ud.rgt0xTsnpVqjpefKV1kIOGuv4G0/rb6H48cyzABABXOA6', NULL, '2021-06-15 18:40:50', '2021-06-18 07:55:31', 1, 'Lawyer'),
+(24, 'Rob', 'fatman700@gmail.com', '2021-06-15 21:20:37', '$2y$10$rkkgdULR45ahCJGv7B18z.07SxLptS4IDO.zhSvz9bgdIA8ylo3pa', NULL, '2021-06-15 21:20:01', '2021-06-18 07:55:34', 1, 'Client'),
+(25, 'Dobby Name', 'richarda7@gmail.com', '2021-06-15 22:30:19', '$2y$10$JxhZbg9JfL.kkSJXDOvAVuIVmtfgjTdwQtV/RuJVxEnG9Ugid382S', NULL, '2021-06-15 22:30:07', '2021-06-18 07:55:43', 1, 'Client'),
+(29, 'test', 'test@test.com', '2021-06-15 22:46:03', '$2y$10$3yffj.1ItmPSD1fpPFQ5nuo7IY7U7S5iXffdjVGQxjRsgdYO23kBK', NULL, '2021-06-15 22:45:56', '2021-06-18 07:55:04', 1, 'Client'),
+(30, 'Richard Mba', 'richardmba7@gmail.com', NULL, '$2y$10$YFEDioG.S3hY9Od03XWQDOvSi6J3XsYptB6J00DVsTw1/UPUcXzYu', NULL, '2021-06-18 07:58:13', '2021-06-18 07:58:13', 1, 'Client');
 
 --
 -- Indexes for dumped tables
@@ -360,7 +363,7 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
