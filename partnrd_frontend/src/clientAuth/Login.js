@@ -1,35 +1,35 @@
 import React from "react";
-import "../../assets/login.css";
-import login_pic from "../../assets/partnrd_logo.jpg.png";
+import "../assets/login.css";
+import login_pic from "../assets/partnrd_logo.png";
 import { Link } from "react-router-dom";
-import {useLogin} from "./useAuth";
-import  { LoginValidate } from "./validate";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { useLogin } from "./useAuth";
+import { LoginValidate } from "./validate";
+import SLUGS from "../resources/slugs";
 
 const Login = () => {
   const { handleLoginChange, fields, handleSubmit, errors, response } =
     useLogin(LoginValidate);
-  const token = localStorage.getItem("token");
-  if (token) {
-    return <Redirect to="/" />;
-  }
+
   return (
     <div>
       <main className="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div className="container">
           <div className="card login-card">
             <div className="row no-gutters">
-              <div className="col-md-5">
-                <img src={login_pic} alt="login" className="login-card-img" />
-              </div>
-              <div className="col-md-7">
+              <div className="col-md-12">
                 <div className="card-body">
-                  <p className="login-card-description">
-                    Sign into your account
-                  </p>
+                  <img src={login_pic} alt="login" className="login-card-img" />
+                  <p className="login-card-description">Sign In</p>
                   <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                      {response.error && <p>{response.message}</p>}
+                      {response.error && (
+                        <div
+                          className="alert alert-danger text-center"
+                          role="alert"
+                        >
+                          {response.message}
+                        </div>
+                      )}
                       <label htmlFor="email" className="sr-only">
                         Email
                       </label>
@@ -68,8 +68,8 @@ const Login = () => {
                     </button>
                   </form>
                   <nav className="login-card-footer-nav">
-                    <Link to="/signup">Register | </Link>
-                    <Link to="/password/email">Forgot Password?</Link>
+                    <Link to={SLUGS.register}>Register</Link> |{" "}
+                    <Link to={SLUGS.forgotPassword}>Forgot Password?</Link>
                   </nav>
                 </div>
               </div>

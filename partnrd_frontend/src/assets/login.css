@@ -1,30 +1,32 @@
     body {
         font-family: "Karla", sans-serif;
-        background-color: #d0d0ce;
+        background-color: #fcfbfb;
+        color: rgba(43, 42, 42, 0.43);
         min-height: 100vh;
-        min-width: 50vh;
-    }
-    
-    .brand-wrapper {
-        margin-bottom: 15px;
-    }
-    
-    .brand-wrapper .logo {
-        height: 37px;
     }
     
     .login-card {
-        border: 0;
-        margin-right: 10px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
-        /* overflow: hidden; */
+        max-width: 400px;
+        margin: auto;
+        padding: 40px 40px;
+        background-color: #fff;
+        border-radius: 6px;
+        box-shadow: 0 2px 15px rgb(2 4 69 / 5%);
+        text-align: center;
+    }
+    
+    .terms {
+        font-size: 10px;
+    }
+    
+    .terms a {
+        color: #000;
     }
     
     .signup-card-img {
         border-radius: 0;
         position: left;
-        background-color: #919aa3;
+        background-color: #b9c2ca;
         max-height: 100%;
         max-width: 120%;
         -o-object-fit: cover;
@@ -32,23 +34,12 @@
     }
     
     .login-card-img {
-        border-radius: 0;
-        position: left;
-        background-color: #919aa3;
-        max-height: 100%;
-        max-width: 110%;
         -o-object-fit: cover;
         object-fit: cover;
-    }
-    
-    .login-card .card-body {
-        padding: 75px 170px;
-    }
-    
-    @media (max-width: 250px) {
-        .login-card .card-body {
-            padding: 35px 18px;
-        }
+        width: 250px;
+        margin: auto;
+        margin-bottom: 40px;
+        margin-top: 10px;
     }
     
     .login-card-description {
@@ -63,11 +54,10 @@
     }
     
     .rst-card-description {
-
         font-size: 25px;
         color: #000;
         font-weight: 400;
-        margin-top: 50px;
+        margin-top: 0px;
     }
     
     .rst-form-group {
@@ -152,4 +142,252 @@
     .login-card-footer-nav a {
         font-size: 14px;
         color: #919aa3;
+    }
+    
+    form {
+        max-width: 1300px;
+        width: 100%;
+        padding: 30px;
+        background-color: #fff;
+        border: 1px solid #d8d8d8;
+        border-radius: 6px;
+    }
+    
+    .card form {
+        max-width: 1300px;
+        width: 100%;
+        padding: 0px;
+        background-color: #fff;
+        border: 0px;
+        border-radius: 0px;
+    }
+    
+    input,
+    select {
+        background-color: #fff;
+        border: 1px solid #d8d8d8;
+        border-radius: 6px;
+        padding: 5px !important;
+    }
+    
+    input:hover,
+    input:focus,
+    select:hover,
+    select:focus {
+        background-color: #fff;
+        border: 1px solid #000 !important;
+        border-radius: 6px;
+        padding: 5px !important;
+        box-shadow: unset !important;
+    }
+    
+    form h2 {
+        color: #000;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #d8d8d8;
+        margin-bottom: 30px;
+    }
+    
+    a {
+        color: #000;
+    }
+    
+    form button {
+        background: #000;
+        color: #fff;
+        border: 0px;
+        border-radius: 3px;
+        padding: 12px 25px;
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+    
+    form table th,
+    form table td,
+    form table {
+        border-color: #d8d8d8 !important;
+    }
+    
+    form table {
+        width: 100%;
+        margin: -10px;
+        position: relative;
+    }
+    
+    form.largeForm tr td:last-child {
+        position: absolute;
+        right: -30px;
+        border: 0px !important;
+        width: 26px;
+        padding: 10px 0px !important;
+    }
+    
+    form table button {
+        background: rgb(90, 90, 90);
+        color: #fff;
+        border: 0px;
+        border-radius: 50px !important;
+        padding: 0px 4px 0px 4px !important;
+        margin: 3px 0px !important;
+        display: block;
+        width: 100%;
+    }
+    
+    form table button svg {
+        font-size: 16px !important;
+    }
+    
+    form table p {
+        padding-bottom: 0px !important;
+    }
+    
+    form.smallForm {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    form.mediumForm {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    form.mediumForm label {
+        padding-top: 15px;
+    }
+    
+    form.mediumForm h2 {
+        color: #000;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #d8d8d8;
+        margin-bottom: 15px;
+    }
+    
+    form label {
+        text-transform: uppercase;
+    }
+    
+    form .form-check {
+        padding: 10px 25px 0px 25px;
+    }
+    
+    form .form-check label,
+    form.largeForm tr td label {
+        text-transform: unset !important;
+    }
+    
+    form.largeForm tr td label {
+        padding-left: 10px;
+    }
+    
+    #provinceName,
+    #postalCode {
+        width: calc(50% - 5px) !important;
+        display: inline-block;
+    }
+    
+    #phone-control {
+        display: inline-block;
+    }
+    
+    #postalCode {
+        margin-left: 10px;
+    }
+    
+    form .shares input,
+    form .shares label {
+        width: calc(50% - 5px) !important;
+        display: inline-block;
+    }
+    
+    form .shares label {
+        background: #ececec;
+        padding: 6px 25px !important;
+        margin-right: 10px;
+        border-radius: 6px;
+    }
+    
+    form .btn-box {
+        margin: auto;
+    }
+    
+    form .btn-box button {
+        width: 24px;
+        display: inline-block;
+    }
+    
+    .popup-button {
+        border: 0px;
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        background: transparent;
+        position: relative;
+    }
+    
+    .popup-button:before {
+        content: "\e88e";
+        font-family: 'Material Icons';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        position: absolute;
+        left: -25px;
+        top: 5px;
+    }
+    
+    .popup-button h6 {
+        font-weight: 600 !important;
+        font-size: 20px !important;
+    }
+    
+    .insideBox>div {
+        display: grid !important;
+        grid-template-columns: 60% 20% 20%;
+        align-items: center;
+    }
+    
+    #profile-form label {
+        margin-top: 15px;
+    }
+    
+    .MuiDialogContent-root p {
+        font-weight: normal;
+        font-family: "Helvetica", "Arial", sans-serif;
+    }
+    
+    .MuiPaper-root .MuiButtonBase-root {
+        background: #000 !important;
+        color: #fff !important;
+        margin: 10px !important;
+    }
+    
+    .agreementView .MuiPaper-root .MuiButtonBase-root {
+        background: unset !important;
+        color: #000 !important;
+        margin: 0px !important;
+        font-family: "Times New Roman";
+        font-weight: normal !important;
+        text-transform: capitalize;
+    }
+    
+    @media (max-width: 880px) {
+        .insideBox>div {
+            display: block !important;
+        }
+        .insideBox .titleCard {
+            float: left;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .contentArea {
+            padding: 95px 20px 60px 20px !important;
+        }
     }

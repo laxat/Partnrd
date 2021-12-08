@@ -18,10 +18,7 @@ export const useSignup = (validate) =>
     password: "",
     password2: "",
     });
-  
-  const type = useState({
-    name: ""
-  })  
+   
   const [response, setResponse] = useState({
     error: false,
     message: "",
@@ -59,7 +56,9 @@ export const useSignup = (validate) =>
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const data = values;
       axios
-        .post("http://127.0.0.1:8000/api/client/register", data)
+        .post(process.env.REACT_APP_API + `/api/client/register`, data, {
+          headers: { Accept: "application/json" }
+        })
         .then((res) => {
           const success = {
             state: true,
@@ -110,6 +109,7 @@ export const useLogin = (validate) =>
 
   const [response, setResponse] = useState({
     error: false,
+    type: "", 
     message: "",
   });
 
@@ -141,21 +141,27 @@ export const useLogin = (validate) =>
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const data = fields;
       axios
-        .post("http://127.0.0.1:8000/api/login", data)
+        .post(process.env.REACT_APP_API + `/api/login`, data, {
+          headers: { Accept: "application/json" },
+        })
         .then((res) => {
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("user", res.data.token);
+          //console.log(res.json());
+          sessionStorage.setItem("xrsf", res.data.access_token);
           history.push("/");
         })
         .catch((err) => {
           let errors = "";
+          let type = "";
+          // console.log(err.response.data);
           if (err.response.data.errors.email) {
             errors = err.response.data.errors.email;
           } else {
             errors = err.response.data.errors;
+            type = err.response.data.type;
           }
           const response = {
             error: true,
+            type: type,
             message: errors,
           };
           setResponse(response);
@@ -209,7 +215,9 @@ export const useEmail = (validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const data = fields;
       axios
-        .post("http://127.0.0.1:8000/api/password/email", data)
+        .post(process.env.REACT_APP_API + `/api/password/email`, data, {
+          headers: { Accept: "application/json" },
+        })
         .then((res) => {
           const success = {
             state: true,
@@ -220,9 +228,8 @@ export const useEmail = (validate) => {
         .catch((err) => {
           let errors;
           if (err.response.data.errors.email) {
-            errors = err.response.data.errors.email[0]; 
-          }
-          else {
+            errors = err.response.data.errors.email[0];
+          } else {
             errors = err.response.data.errors;
           }
 
@@ -231,7 +238,7 @@ export const useEmail = (validate) => {
             message: errors,
           };
 
-          console.log(errors)
+          // console.log(errors);
           setResponse(response);
           setIsSubmitting(false);
         });
@@ -308,13 +315,15 @@ export const useResetPassword = (validate) => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       const data = fields;
       axios
-        .post("http://127.0.0.1:8000/api/password/reset", data)
+        .post(process.env.REACT_APP_API + `/api/password/reset`, data, {
+          headers: { Accept: "application/json" },
+        })
         .then((res) => {
           const success = {
             state: true,
             message: res.message,
           };
-          console.log(success);
+          // console.log(success);
           setSuccess(success);
         })
         .catch((err) => {
@@ -325,7 +334,7 @@ export const useResetPassword = (validate) => {
             message: errors,
           };
 
-          console.log(errors);
+          // console.log(errors);
           setResponse(response);
           setIsSubmitting(false);
         });

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\Http\Controllers\VerificationController;
 
 use Carbon\Carbon; 
 
@@ -111,7 +112,10 @@ class AuthController extends ApiController
 
         if(!$user->hasVerifiedEmail()){
 
-            return $this->responseUnauthorized("This email is unverified ");
+            $user->sendEmailVerificationNotification(); 
+            return $this->responseUnauthorized("This email is unverified, 
+            verification email has been resent", "verified");
+
         }
 
         $tokenResult = $user->createToken('Personal Access Token'); 

@@ -1,31 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import login_pic from "../../assets/partnrd_logo.jpg.png";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import login_pic from "../assets/partnrd_logo.png";
 import { useEmail } from "./useAuth";
 import { ForgotValidate } from "./validate";
 
 export default function ForgotPassword() {
   const { handleEmailChange, fields, handleSubmit, errors, response, success } =
     useEmail(ForgotValidate);
-    const token = localStorage.getItem("token");
-    if (token) {
-      return <Redirect to="/" />;
-    }
+
   return (
     <div>
       <main className="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div className="container">
           <div className="card login-card">
             <div className="row no-gutters">
-              <div className="col-md-5">
-                <img src={login_pic} alt="login" className="login-card-img" />
-              </div>
-              <div className="col-md-7">
+              <div className="col-md-12">
                 <div className="card-body">
-                  <p className="rst-card-description">
-                    Send Password Reset Link
-                  </p>
+                  <img src={login_pic} alt="login" className="login-card-img" />
+                  <p className="rst-card-description">Forgot Password</p>
                   {success.state && (
                     <div
                       className="alert alert-success text-center"
@@ -63,7 +55,7 @@ export default function ForgotPassword() {
                   )}
                   {!success.state && (
                     <p className="signup-card-footer-text">
-                      Actually I remember my password:{" "}
+                      I remember my password:{" "}
                       <Link to="/login" className="text-reset">
                         Login
                       </Link>

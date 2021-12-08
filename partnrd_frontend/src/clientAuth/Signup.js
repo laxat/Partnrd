@@ -1,19 +1,19 @@
 import React from "react";
-import "../../assets/login.css";
-import login_pic from "../../assets/partnrd_logo.jpg.png";
+import "../assets/login.css";
+import login_pic from "../assets/partnrd_logo.png";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import registerValidate from "./validate";
 import { useSignup } from "./useAuth";
+import registerValidate from "./validate";
 
-export default function LawyerSignup() {
-    const {
-      handleRegisterChange,
-      values,
-      handleSubmit,
-      errors,
-      response,
-      success,
-    } = useSignup(registerValidate);
+const Signup = () => {
+  const {
+    handleRegisterChange,
+    values,
+    handleSubmit,
+    errors,
+    response,
+    success,
+  } = useSignup(registerValidate);
 
   return (
     <div>
@@ -21,14 +21,10 @@ export default function LawyerSignup() {
         <div className="container">
           <div className="card login-card">
             <div className="row no-gutters">
-              <div className="col-md-5">
-                <img src={login_pic} alt="login" className="signup-card-img" />
-              </div>
-              <div className="col-md-7">
+              <div className="col-md-12">
                 <div className="card-body">
-                  <p className="login-card-description">
-                    Register a new lawyer account
-                  </p>
+                  <img src={login_pic} alt="login" className="login-card-img" />
+                  <p className="login-card-description">Sign Up</p>
                   {success.state && <p>{success.message}</p>}
                   {!success.state && (
                     <form onSubmit={handleSubmit}>
@@ -93,6 +89,14 @@ export default function LawyerSignup() {
                         />
                         {errors.password2 && <p>{errors.password2}</p>}
                       </div>
+                      <small className="terms">
+                        By craeting an account, you accept our{" "}
+                        <a href="/terms" target="_blank">
+                          Terms and Conditions
+                        </a>
+                        <br />
+                      </small>
+                      .
                       <button
                         name="submit"
                         className="btn btn-block login-btn mb-4"
@@ -116,4 +120,6 @@ export default function LawyerSignup() {
       </main>
     </div>
   );
-}
+};
+
+export default Signup;

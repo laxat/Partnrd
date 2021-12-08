@@ -1,37 +1,29 @@
 import React from "react";
-import login_pic from "../../assets/partnrd_logo.jpg.png";
+import login_pic from "../assets/partnrd_logo.png";
 import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 import { useResetPassword } from "./useAuth";
 import { ResetValidate } from "./validate";
 
 export default function ResetPassword() {
-  const { handleChange, fields, handleSubmit, errors, response, success} =
+  const { handleChange, fields, handleSubmit, errors, response, success } =
     useResetPassword(ResetValidate);
-  const token = localStorage.getItem("token");
-  if (token) {
-    return <Redirect to="/" />;
-  }
+
   return (
     <div>
       <main className="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div className="container">
           <div className="card login-card">
             <div className="row no-gutters">
-              <div className="col-md-5">
-                <img src={login_pic} alt="login" className="login-card-img" />
-              </div>
-              <div className="col-md-7">
+              <div className="col-md-12">
                 <div className="card-body">
-                  <p className="rst-card-description">
-                    Enter Your New Password
-                  </p>
+                  <img src={login_pic} alt="login" className="login-card-img" />
+                  <p className="rst-card-description">Enter New Password</p>
                   {success.state && (
                     <div
                       className="alert alert-success text-center"
                       role="alert"
                     >
-                      Your password has been reset! 
+                      Your password has been reset!
                       <Link to="/login">Login</Link>
                     </div>
                   )}

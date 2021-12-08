@@ -1,0 +1,11 @@
+
+
+.Table {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.side-by-side {
+    display: flex;
+    flex-direction: row;
+}

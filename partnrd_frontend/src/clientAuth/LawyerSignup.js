@@ -1,36 +1,31 @@
-import React from 'react'
-import "../../assets/login.css"
-import login_pic from "../../assets/partnrd_logo.jpg.png"
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min'
-import { useSignup } from './useAuth'
-import registerValidate from './validate'
+import React from "react";
+import "../assets/login.css";
+import login_pic from "../assets/partnrd_logo.jpg.png";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import registerValidate from "./validate";
+import { useSignup } from "./useAuth";
 
-const Signup = () =>
-{
-  const { handleRegisterChange, values, handleSubmit, errors, response, success}
-    = useSignup(registerValidate);
-  const token = localStorage.getItem("token");
-  if (token) {
-    return <Redirect to="/" />;
-  }
+export default function LawyerSignup() {
+  const {
+    handleRegisterChange,
+    values,
+    handleSubmit,
+    errors,
+    response,
+    success,
+  } = useSignup(registerValidate);
+
   return (
     <div>
       <main className="d-flex align-items-center min-vh-100 py-3 py-md-0">
         <div className="container">
           <div className="card login-card">
             <div className="row no-gutters">
-              <div className="col-md-5">
-                <img src={login_pic} alt="login" className="signup-card-img" />
-              </div>
-              <div className="col-md-7">
+              <div className="col-md-12">
                 <div className="card-body">
-                  <p className="login-card-description">
-                    Register a new account
-                  </p>
-                  {success.state && (
-                    <p>{ success.message }</p>
-                  )}
+                  <img src={login_pic} alt="login" className="login-card-img" />
+                  <p className="login-card-description">Sign Up</p>
+                  {success.state && <p>{success.message}</p>}
                   {!success.state && (
                     <form onSubmit={handleSubmit}>
                       <div className="form-group">
@@ -118,5 +113,3 @@ const Signup = () =>
     </div>
   );
 }
-
-export default Signup

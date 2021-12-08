@@ -50,14 +50,16 @@ class VerificationController extends ApiController
     }
 
 
-    public function resend(Request $request)
+    public function resend(Request $request, $id)
     {
-        if ($request->user()->hasVerifiedEmail())
+        $user = User::find($id);
+         
+        if ($user->hasVerifiedEmail())
         {
             return $this->responseUnprocessable('User has already been verified');
         }
 
-        $request->user()->sendEmailVerificationNotification(); 
+        $user->sendEmailVerificationNotification(); 
 
         return $this->responseSuccess('The notification has been resubmitted'); 
     }

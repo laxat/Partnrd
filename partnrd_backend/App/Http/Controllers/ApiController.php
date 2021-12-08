@@ -89,10 +89,11 @@ abstract class ApiController extends Controller
      * @param  array $errors
      * @return \Illuminate\Http\JsonResponse
      */
-    public function responseUnauthorized($errors = ['Unauthorized.'])
+    public function responseUnauthorized($errors = ['Unauthorized.'], $type=["Unauthorized"])
     {
         return response()->json([
             'status' => 401,
+            'type' => $type, 
             'errors' => $errors,
         ], 401);
     }
@@ -103,10 +104,11 @@ abstract class ApiController extends Controller
      * @param  array $errors
      * @return \Illuminate\Http\JsonResponse
      */
-    public function responseUnprocessable($errors = ['Unprocessed'])
+    public function responseUnprocessable($errors = ['Unprocessed'], $type=["unproceed"])
     {
         return response()->json([
             'status' => 422,
+            'type' => $type,
             'errors' => $errors,
         ], 422);
     }
