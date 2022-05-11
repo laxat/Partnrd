@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "https://partnrd.ca/app/static/css/main.3bfd94b0.chunk.css",
+    "main.js": "https://partnrd.ca/app/static/js/main.e6cbdf85.chunk.js",
+    "main.js.map": "https://partnrd.ca/app/static/js/main.e6cbdf85.chunk.js.map",
+    "runtime-main.js": "https://partnrd.ca/app/static/js/runtime-main.4789f6b8.js",
+    "runtime-main.js.map": "https://partnrd.ca/app/static/js/runtime-main.4789f6b8.js.map",
+    "static/js/2.70bf6475.chunk.js": "https://partnrd.ca/app/static/js/2.70bf6475.chunk.js",
+    "static/js/2.70bf6475.chunk.js.map": "https://partnrd.ca/app/static/js/2.70bf6475.chunk.js.map",
+    "static/js/3.f89299cb.chunk.js": "https://partnrd.ca/app/static/js/3.f89299cb.chunk.js",
+    "static/js/3.f89299cb.chunk.js.map": "https://partnrd.ca/app/static/js/3.f89299cb.chunk.js.map",
+    "index.html": "https://partnrd.ca/app/index.html",
+    "static/css/main.3bfd94b0.chunk.css.map": "https://partnrd.ca/app/static/css/main.3bfd94b0.chunk.css.map",
+    "static/js/2.70bf6475.chunk.js.LICENSE.txt": "https://partnrd.ca/app/static/js/2.70bf6475.chunk.js.LICENSE.txt",
+    "static/media/partnrd_logo.b168aa73.png": "https://partnrd.ca/app/static/media/partnrd_logo.b168aa73.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4789f6b8.js",
+    "static/js/2.70bf6475.chunk.js",
+    "static/css/main.3bfd94b0.chunk.css",
+    "static/js/main.e6cbdf85.chunk.js"
+  ]
+}
